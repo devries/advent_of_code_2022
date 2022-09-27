@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"path"
 	"text/template"
@@ -36,32 +35,20 @@ func main() {
 		panic(err)
 	}
 
-	tpl, err := template.ParseFiles(path.Join(*templ, "main.go"))
+	tpls, err := template.ParseGlob(path.Join(*templ, "*"))
 	if err != nil {
 		panic(err)
 	}
 
-	f, err := os.Create(path.Join(dirname, "main.go"))
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
+	for _, tpl := range tpls.Templates() {
+		f, err := os.Create(path.Join(dirname, tpl.Name()))
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
 
-	if err := tpl.Execute(f, *day); err != nil {
-		panic(err)
-	}
-
-	ftest, err := os.Open(path.Join(*templ, "main_test.go"))
-	if err != nil {
-		panic(err)
-	}
-
-	ftestout, err := os.Create(path.Join(dirname, "main_test.go"))
-	if err != nil {
-		panic(err)
-	}
-
-	if _, err := io.Copy(ftestout, ftest); err != nil {
-		panic(err)
+		if err := tpl.Execute(f, *day); err != nil {
+			panic(err)
+		}
 	}
 }
