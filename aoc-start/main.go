@@ -19,6 +19,7 @@ func myUsage() {
 func main() {
 	now := time.Now()
 	day := pflag.IntP("day", "d", now.Day(), "Advent of Code Day")
+	templ := pflag.StringP("templates", "t", "template", "Directory where templates are stored")
 	help_flag := pflag.BoolP("help", "h", false, "show help")
 
 	pflag.Usage = myUsage
@@ -35,7 +36,7 @@ func main() {
 		panic(err)
 	}
 
-	tpl, err := template.ParseFiles("template/main.go")
+	tpl, err := template.ParseFiles(path.Join(*templ, "main.go"))
 	if err != nil {
 		panic(err)
 	}
@@ -50,7 +51,7 @@ func main() {
 		panic(err)
 	}
 
-	ftest, err := os.Open("template/main_test.go")
+	ftest, err := os.Open(path.Join(*templ, "main_test.go"))
 	if err != nil {
 		panic(err)
 	}
