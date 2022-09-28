@@ -32,23 +32,23 @@ func main() {
 	dirname := fmt.Sprintf("day%02d_p1", *day)
 
 	if err := os.MkdirAll(dirname, 0755); err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "Error creating destination directory %s: %s\n", dirname, err)
+		os.Exit(1)
 	}
 
-	tpls, err := template.ParseGlob(path.Join(*templ, "*"))
-	if err != nil {
-		panic(err)
-	}
+	tpls := template.Must(template.ParseGlob(path.Join(*templ, "*")))
 
 	for _, tpl := range tpls.Templates() {
 		f, err := os.Create(path.Join(dirname, tpl.Name()))
 		if err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "Error creating output file %s: %s\n", tpl.Name(), err)
+			os.Exit(2)
 		}
 		defer f.Close()
 
 		if err := tpl.Execute(f, *day); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "Error executing template for file %s: %s\n", tpl.Name(), err)
+			os.Exit(3)
 		}
 	}
 }
