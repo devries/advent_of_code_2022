@@ -19,12 +19,12 @@ func main() {
 	now := time.Now()
 	day := pflag.IntP("day", "d", now.Day(), "Advent of Code Day")
 	templ := pflag.StringP("templates", "t", "template", "Directory where templates are stored")
-	help_flag := pflag.BoolP("help", "h", false, "show help")
+	helpFlag := pflag.BoolP("help", "h", false, "show help")
 
 	pflag.Usage = myUsage
 	pflag.Parse()
 
-	if *help_flag {
+	if *helpFlag {
 		myUsage()
 		os.Exit(0)
 	}
