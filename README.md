@@ -14,7 +14,7 @@ I'll be using the [GitHub CLI](https://cli.github.com/) in order to connect with
 my codespace (using SSH) and have a [dotfiles configuration](https://github.com/devries/dotfiles)
 which installs my preferred editor ([Neovim](https://neovim.io/)) and tmux so
 I can work comfortably. I should be able to stick to the free tier (60 hours of
-usage and 15 GB-months storage) for Advent of Code, but should give me enough
+usage and 15 GB-months storage) for Advent of Code, and it gives me enough
 time to see if working through codespaces is something that I enjoy. The big
 down side is likely to be the delay caused by working over an SSH connection. I
 am not a big fan of Neovim's remote editing feature, so I plan to run Neovim
