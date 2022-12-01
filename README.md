@@ -22,3 +22,14 @@ on the remote codespace.
 
 It seems like cloud-hosted development environments are becoming more common, so
 I look forward to seeing how this experiment pans out.
+
+## Index
+
+- [Day 1: Calorie Counting](https://adventofcode.com/2022/day/1) - [part 1](day01_p1/main.go), [part 2](day01_p2/main.go)
+
+  Codespaces did have a bit of a delay over ssh, though that was fairly manageable.
+  When saving the file the first time it took the linter some time to get going
+  and also it appears that codespaces does not have `goimports` installed by
+  default, so I had to look up the standard library imports rather than rely on
+  the go tooling. It's all the little things that make a development environment
+  work.
