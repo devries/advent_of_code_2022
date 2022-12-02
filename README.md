@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 2](https://img.shields.io/badge/⭐_Stars-2-yellow)](https://adventofcode.com/2022)
+[![Stars: 4](https://img.shields.io/badge/⭐_Stars-4-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -33,3 +33,8 @@ I look forward to seeing how this experiment pans out.
   default, so I had to look up the standard library imports rather than rely on
   the go tooling. It's all the little things that make a development environment
   work.
+
+- [Day 2: Rock Paper Scissors](https://adventofcode.com/2022/day/2) - [part 1](day02_p1/main.go), [part 2](day02_p2/main.go)
+
+  I added `goimports` to my environment and things ran fairly smoothly. The delay
+  is still just enough to be slightly annoying.
