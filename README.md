@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 4](https://img.shields.io/badge/⭐_Stars-4-yellow)](https://adventofcode.com/2022)
+[![Stars: 6](https://img.shields.io/badge/⭐_Stars-6-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -38,3 +38,7 @@ I look forward to seeing how this experiment pans out.
 
   I added `goimports` to my environment and things ran fairly smoothly. The delay
   is still just enough to be slightly annoying.
+
+- [Day 3: Rock Paper Scissors](https://adventofcode.com/2022/day/3) - [part 1](day03_p1/main.go), [part 2](day03_p2/main.go)
+
+  Bit arithmetic makes an appearance!
