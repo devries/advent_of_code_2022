@@ -39,6 +39,6 @@ I look forward to seeing how this experiment pans out.
   I added `goimports` to my environment and things ran fairly smoothly. The delay
   is still just enough to be slightly annoying.
 
-- [Day 3: Rock Paper Scissors](https://adventofcode.com/2022/day/3) - [part 1](day03_p1/main.go), [part 2](day03_p2/main.go)
+- [Day 3: Rucksack Reorganization](https://adventofcode.com/2022/day/3) - [part 1](day03_p1/main.go), [part 2](day03_p2/main.go)
 
   Bit arithmetic makes an appearance!
