@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 8](https://img.shields.io/badge/⭐_Stars-8-yellow)](https://adventofcode.com/2022)
+[![Stars: 10](https://img.shields.io/badge/⭐_Stars-10-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -44,3 +44,8 @@ I look forward to seeing how this experiment pans out.
   Bit arithmetic makes an appearance!
 
 - [Day 4: Camp Cleanup](https://adventofcode.com/2022/day/4) - [part 1](day04_p1/main.go), [part 2](day04_p2/main.go)
+
+- [Day 5: Supply Stacks](https://adventofcode.com/2022/day/5) - [part 1](day05_p1/main.go), [part 2](day05_p2/main.go)
+
+  I decided to stop using codespaces. It was fine, but the small amount of delay
+  over ssh was noticeable and unnecessary considering I am at my computer.
