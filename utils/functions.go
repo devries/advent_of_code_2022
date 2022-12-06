@@ -32,8 +32,9 @@ func CountBits(n uint32) int {
 }
 
 // Check if error is not nil and panic with message if it is.
-func Check(e error, message string) {
+func Check(e error, format string, a ...any) {
 	if e != nil {
+		message := fmt.Sprintf(format, a...)
 		panic(fmt.Errorf("%s: %s", message, e))
 	}
 }
