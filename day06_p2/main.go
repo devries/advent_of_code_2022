@@ -11,6 +11,7 @@ import (
 )
 
 const inputfile = "../inputs/day06.txt"
+const sequenceLength = 14
 
 func main() {
 	pflag.Parse()
@@ -28,15 +29,16 @@ func solve(r io.Reader) int {
 	letters := []rune(lines[0])
 
 	var retval int
+
 outer:
-	for i := 13; i < len(letters); i++ {
-		marker := letters[i-13 : i+1]
+	for i := sequenceLength; i <= len(letters); i++ {
+		marker := letters[i-sequenceLength : i]
 		for pair := range combs.Combinations(2, marker) {
 			if pair[0] == pair[1] {
 				continue outer
 			}
 		}
-		retval = i + 1
+		retval = i
 		break
 	}
 
