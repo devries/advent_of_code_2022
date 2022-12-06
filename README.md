@@ -49,3 +49,10 @@ I look forward to seeing how this experiment pans out.
 
   I decided to stop using codespaces. It was fine, but the small amount of delay
   over ssh was noticeable and unnecessary considering I am at my computer.
+
+- [Day 6: Tuning Trouble](https://adventofcode.com/2022/day/6) - [part 1](day06_p1/main.go), [part 2](day06_p2/main.go)
+
+  One thing python has which Go does not have in its standard library are tools
+  to find combinations and permutations of values from a list. Luckily I wrote
+  some for an earlier advent of code. I separated them into a separate library
+  at [github.com/devries/combs](https://github.com/devries/combs).
