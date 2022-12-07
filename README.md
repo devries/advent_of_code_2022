@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 12](https://img.shields.io/badge/⭐_Stars-12-yellow)](https://adventofcode.com/2022)
+[![Stars: 14](https://img.shields.io/badge/⭐_Stars-14-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -56,3 +56,7 @@ I look forward to seeing how this experiment pans out.
   to find combinations and permutations of values from a list. Luckily I wrote
   some for an earlier advent of code. I separated them into a separate library
   at [github.com/devries/combs](https://github.com/devries/combs).
+
+- [Day 7: No Space Left On Device](https://adventofcode.com/2022/day/7) - [part 1](day07_p1/main.go), [part 2](day07_p2/main.go)
+
+  A little tree work.
