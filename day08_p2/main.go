@@ -29,7 +29,7 @@ func solve(r io.Reader) int {
 	maxScenic := 0
 	for k, v := range f.Trees {
 		// Count trees in each cardinal direction
-		treesViewed := []int{}
+		score := 1
 		for _, d := range utils.Directions {
 			n := 0
 			for p := k.Add(d); p.X >= 0 && p.X < f.Width && p.Y >= 0 && p.Y < f.Height; p = p.Add(d) {
@@ -38,11 +38,10 @@ func solve(r io.Reader) int {
 					break
 				}
 			}
-			treesViewed = append(treesViewed, n)
+			score *= n
 		}
-		s := treesViewed[0] * treesViewed[1] * treesViewed[2] * treesViewed[3]
-		if s > maxScenic {
-			maxScenic = s
+		if score > maxScenic {
+			maxScenic = score
 		}
 	}
 
