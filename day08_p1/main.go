@@ -29,7 +29,7 @@ func solve(r io.Reader) int {
 	visible := 0
 outerLoop:
 	for k, v := range f.Trees {
-		// Check if anything is higher on each side in row
+		// Check if anything is higher in each cardinal direction
 		for _, d := range utils.Directions {
 			blocked := false
 			for p := k.Add(d); p.X >= 0 && p.X < f.Width && p.Y >= 0 && p.Y < f.Height; p = p.Add(d) {

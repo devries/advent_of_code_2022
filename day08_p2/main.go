@@ -28,7 +28,7 @@ func solve(r io.Reader) int {
 
 	maxScenic := 0
 	for k, v := range f.Trees {
-		// Check if anything is higher on each side in row
+		// Count trees in each cardinal direction
 		treesViewed := []int{}
 		for _, d := range utils.Directions {
 			n := 0
