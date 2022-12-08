@@ -26,26 +26,27 @@ func solve(r io.Reader) int {
 
 	f := parse(lines)
 
-	visible := 0
-outerLoop:
+	maxScenic := 0
 	for k, v := range f.Trees {
 		// Check if anything is higher on each side in row
+		treesViewed := []int{}
 		for _, d := range utils.Directions {
-			blocked := false
+			n := 0
 			for p := k.Add(d); p.X >= 0 && p.X < f.Width && p.Y >= 0 && p.Y < f.Height; p = p.Add(d) {
+				n++
 				if f.Trees[p] >= v {
-					blocked = true
 					break
 				}
 			}
-			if !blocked {
-				visible++
-				continue outerLoop
-			}
+			treesViewed = append(treesViewed, n)
+		}
+		s := treesViewed[0] * treesViewed[1] * treesViewed[2] * treesViewed[3]
+		if s > maxScenic {
+			maxScenic = s
 		}
 	}
 
-	return visible
+	return maxScenic
 }
 
 func parse(lines []string) Forest {

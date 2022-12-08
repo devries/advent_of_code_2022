@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 14](https://img.shields.io/badge/⭐_Stars-14-yellow)](https://adventofcode.com/2022)
+[![Stars: 16](https://img.shields.io/badge/⭐_Stars-16-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -60,3 +60,8 @@ I look forward to seeing how this experiment pans out.
 - [Day 7: No Space Left On Device](https://adventofcode.com/2022/day/7) - [part 1](day07_p1/main.go), [part 2](day07_p2/main.go)
 
   A little tree work.
+
+- [Day 8: Treetop Tree House](https://adventofcode.com/2022/day/8) - [part 1](day08_p1/main.go), [part 2](day08_p2/main.go)
+
+  And now for actual trees. I always have a little trouble when I am trying to
+  measure that a condition does not occur in any of N possibilities. 
