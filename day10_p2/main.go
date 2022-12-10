@@ -20,7 +20,12 @@ func main() {
 	defer f.Close()
 
 	r := solve(f)
-	fmt.Println(r)
+	if utils.Verbose {
+		fmt.Println(r)
+	}
+
+	letters := utils.OCRLetters(r)
+	fmt.Println(letters)
 }
 
 func solve(r io.Reader) string {
@@ -52,13 +57,7 @@ func solve(r io.Reader) string {
 	}
 
 	message := strings.Join(submessages, "\n")
-
-	if utils.Verbose {
-		fmt.Println(message)
-	}
-
-	letters := utils.OCRLetters(message)
-	return letters
+	return message
 }
 
 func findDeviations(lines []string) ([]int64, int64) {
