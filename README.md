@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 18](https://img.shields.io/badge/⭐_Stars-18-yellow)](https://adventofcode.com/2022)
+[![Stars: 20](https://img.shields.io/badge/⭐_Stars-20-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -69,3 +69,9 @@ I look forward to seeing how this experiment pans out.
 - [Day 9: Rope Bridge](https://adventofcode.com/2022/day/9) - [part 1](day09_p1/main.go), [part 2](day09_p2/main.go)
 
   Fairly straightforward, but I like moving around maps.
+
+- [Day 10: Cathode-Ray Tube](https://adventofcode.com/2022/day/10) - [part 1](day10_p1/main.go), [part 2](day10_p2/main.go)
+
+  This one seemed pretty easy. I was expecting repeating the cycles for some large
+  number of times in part 2, but instead I got to take advantage of my AoC OCR
+  utility.
