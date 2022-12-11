@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 20](https://img.shields.io/badge/⭐_Stars-20-yellow)](https://adventofcode.com/2022)
+[![Stars: 22](https://img.shields.io/badge/⭐_Stars-22-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -75,3 +75,9 @@ I look forward to seeing how this experiment pans out.
   This one seemed pretty easy. I was expecting repeating the cycles for some large
   number of times in part 2, but instead I got to take advantage of my AoC OCR
   utility.
+
+- [Day 11: Monkey in the Middle](https://adventofcode.com/2022/day/11) - [part 1](day11_p1/main.go), [part 2](day11_p2/main.go)
+
+  I naively decided to try using the big integer library before just running a
+  modulo least common multiple on each worry operation. A little bit of a
+  detour for part 2 it turns out. Also, took me a while to parse.
