@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 22](https://img.shields.io/badge/⭐_Stars-22-yellow)](https://adventofcode.com/2022)
+[![Stars: 24](https://img.shields.io/badge/⭐_Stars-24-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -81,3 +81,10 @@ I look forward to seeing how this experiment pans out.
   I naively decided to try using the big integer library before just running a
   modulo least common multiple on each worry operation. A little bit of a
   detour for part 2 it turns out. Also, took me a while to parse.
+
+- [Day 12: Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) - [part 1](day12_p1/main.go), [part 2](day12_p2/main.go)
+
+  A nice little reversal (literally) at the end where you have to find the starting
+  point with the shortest path to the end. Turns out it is easy to just start at
+  the end and do a breadth first search until you find the first location with
+  altitude 'a'.
