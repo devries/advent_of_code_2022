@@ -83,9 +83,10 @@ func (a PacketList) Compare(b Item) int {
 		// Comparing list to number
 		bl := PacketList{b}
 		return a.Compare(bl)
-	}
 
-	return 0
+	default:
+		panic("this line should not be reachable")
+	}
 }
 
 func (a PacketNumber) Compare(b Item) int {
@@ -98,9 +99,10 @@ func (a PacketNumber) Compare(b Item) int {
 	case PacketNumber:
 		// Comparing number to number
 		return int(a - v)
-	}
 
-	return 0
+	default:
+		panic("this line should not be reachable")
+	}
 }
 
 func (a PacketList) Len() int      { return len(a) }
