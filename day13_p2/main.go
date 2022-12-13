@@ -44,6 +44,9 @@ func solve(r io.Reader) int {
 		if p.String() == "[[2]]" || p.String() == "[[6]]" {
 			solution *= i + 1
 		}
+		if utils.Verbose {
+			fmt.Printf("%d: %s\n", i+1, p)
+		}
 	}
 
 	return solution
