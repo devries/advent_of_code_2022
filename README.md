@@ -88,3 +88,10 @@ I look forward to seeing how this experiment pans out.
   point with the shortest path to the end. Turns out it is easy to just start at
   the end and do a breadth first search until you find the first location with
   altitude 'a'.
+
+- [Day 13: Distress Signal](https://adventofcode.com/2022/day/13) - [part 1](day13_p1/main.go), [part 2](day13_p2/main.go)
+
+  I had a few bugs in the packet parser hitting a comma when I expected a left bracket
+  or an integer, but eventually I found the issue. After that the comparisons were
+  fairly easy. I completed this in a similar was as I did the Snail math problem last
+  year, with an interface type that could hold an integer to a list of those interfaces.
