@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/devries/advent_of_code_2022/utils"
 	"github.com/spf13/pflag"
@@ -19,7 +20,21 @@ func main() {
 	utils.Check(err, "error opening input")
 	defer f.Close()
 
+	if utils.Verbose {
+		initialize()
+		r, _ := resize()
+		interruptHandling(r, 0)
+		clear()
+		hideCursor()
+	}
 	r := solve(f)
+	if utils.Verbose {
+		showCursor()
+		r, _ := resize()
+		move(r, 0)
+		cleanup()
+	}
+
 	fmt.Println(r)
 }
 
@@ -28,6 +43,7 @@ func solve(r io.Reader) int {
 
 	// Read in topology
 	filled := make(map[utils.Point]bool)
+	// For visualization
 	maxy := 0
 
 	for _, ln := range lines {
@@ -37,6 +53,13 @@ func solve(r io.Reader) int {
 		}
 		for _, p := range pts {
 			filled[p] = true
+		}
+	}
+
+	if utils.Verbose {
+		for p := range filled {
+			move(p.Y, p.X-500+maxy+1)
+			fmt.Printf("█")
 		}
 	}
 
@@ -63,6 +86,11 @@ func solve(r io.Reader) int {
 
 			if !moved {
 				filled[s] = true
+				if utils.Verbose {
+					move(s.Y, s.X-500+maxy+1)
+					fmt.Printf("@")
+					time.Sleep(5 * time.Millisecond)
+				}
 				break // Stopped moving, next sand
 			}
 		}
