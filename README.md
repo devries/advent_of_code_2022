@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 26](https://img.shields.io/badge/⭐_Stars-26-yellow)](https://adventofcode.com/2022)
+[![Stars: 28](https://img.shields.io/badge/⭐_Stars-28-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -95,3 +95,9 @@ I look forward to seeing how this experiment pans out.
   or an integer, but eventually I found the issue. After that the comparisons were
   fairly easy. I completed this in a similar was as I did the Snail math problem last
   year, with an interface type that could hold an integer to a list of those interfaces.
+
+- [Day 14: Regolith Reservoir](https://adventofcode.com/2022/day/14) - [part 1](day14_p1/main.go), [part 2](day14_p2/main.go)
+
+  I read the problem and thought this was going to be one of the problems where
+  efficiency would be an issue, but it turned out to be straightforward. Unfortunately
+  my flow was interrupted by a meeting between parts 1 and 2.
