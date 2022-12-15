@@ -70,6 +70,8 @@ func TestPoint(t *testing.T) {
 
 	p4 := North.Add(South)
 
+	p5 := Point{12, -11}
+
 	if p2 != North {
 		t.Errorf("0,0 + North should be North")
 	}
@@ -80,6 +82,10 @@ func TestPoint(t *testing.T) {
 
 	if p4 != p {
 		t.Errorf("North + South should be 0,0")
+	}
+
+	if p5.Manhattan() != 23 {
+		t.Errorf("The manhattan distance of {12, -11} should be 23, but I got %d", p5.Manhattan())
 	}
 }
 

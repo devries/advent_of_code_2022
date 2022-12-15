@@ -132,7 +132,7 @@ func parseLine(ln string) ([]utils.Point, int) {
 
 		d := e.Add(s.Scale(-1))
 
-		inc := utils.Point{X: d.X / d.Metropolis(), Y: d.Y / d.Metropolis()}
+		inc := utils.Point{X: d.X / d.Manhattan(), Y: d.Y / d.Manhattan()}
 
 		for p := s; p != e; p = p.Add(inc) {
 			pts = append(pts, p)

@@ -29,7 +29,7 @@ func solve(r io.Reader, row int64) int64 {
 	for _, ln := range lines {
 		s, b := parseLine(ln)
 		d := b.Sub(s)
-		sensors = append(sensors, Sensor{s, d.Metropolitan()})
+		sensors = append(sensors, Sensor{s, d.Manhattan()})
 
 		newbeacon := true
 		for _, p := range beacons {
@@ -106,7 +106,7 @@ func abs(x int64) int64 {
 	return x
 }
 
-func (a Pos) Metropolitan() int64 {
+func (a Pos) Manhattan() int64 {
 	return abs(a.X) + abs(a.Y)
 }
 

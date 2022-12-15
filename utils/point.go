@@ -44,7 +44,7 @@ func (p Point) Left() Point {
 }
 
 // Return metropolis magnitude (abs(x)+abs(y))
-func (p Point) Metropolis() int {
+func (p Point) Manhattan() int {
 	return abs(p.X) + abs(p.Y)
 }
 
