@@ -101,3 +101,10 @@ I look forward to seeing how this experiment pans out.
   I read the problem and thought this was going to be one of the problems where
   efficiency would be an issue, but it turned out to be straightforward. Unfortunately
   my flow was interrupted by a meeting between parts 1 and 2.
+
+- [Day 15: Beacon Exclusion Zone](https://adventofcode.com/2022/day/15) - [part 1](day15_p1/main.go), [part 2](day15_p2/main.go)
+
+  Not a lot to say about this problem. I should make my utils.Point methods generic
+  so they work on int64, but it was faster just to define int64 structs for points
+  and for ranges. This time my overlap function was simpler than the last time we
+  did a problem like this.
