@@ -111,6 +111,20 @@ I look forward to seeing how this experiment pans out.
 
 - [Day 16: Proboscidea Volcanium](https://adventofcode.com/2022/day/16) - [part 1](day16_p1/main.go), [part 2](day16_p2/main.go)
 
+  To solve this I calculated the distances between any two valves in seconds
+  elapsed and restricted myself to traveling only to valves that had a flow >
+  0. For the first part I essentially found the distances between all valves
+  and then recursively did a depth first search through all possible paths that
+  could be done within the time limit. For part 2, initially I split the valves between the
+  two players and found all combinations of valves each player could have. I then
+  restricted each player's parameter space to their assigned valves.
+  Iterating through all the possibilities, even with memoization, took around
+  a minute, and that solution is in [slow part 2](day16_p2slow/main.go), but after
+  that I went looking for hints and found that you could essentially keep a combined
+  list of all the valves and just run player 1, reset the clock, and run player 2. Reducing
+  the state to time elapsed, position, player (I used "A" or "B"), and open valves
+  reduced the run time to a few seconds. This was a very interesting problem.
+
   The second part of this took around a minute to calculate on a 2018 macbook pro, so
   I am sure there is a better way to do this. For the first part I essentially found the distances
   between all valves and then recursively did a depth first search through all possible

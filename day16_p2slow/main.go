@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/devries/advent_of_code_2022/utils"
+	"github.com/devries/combs"
 	"github.com/spf13/pflag"
 )
 
@@ -32,20 +33,65 @@ func solve(r io.Reader) int {
 
 	// Find the max gas for every combination of valves
 
-	// For state we will save the time elapsed, position of the current player, open valves,
-	// and which player. We will run player A and then player B.
+	// First fing the significant valves (that have flow > 0)
+	sigvalves := []string{}
+	for k, v := range valves {
+		if v.Flow > 0 {
+			sigvalves = append(sigvalves, k)
+		}
+	}
+
+	// We define a state which includes time step, position, open valves, and valve set
+	// assigned to the user. We will be splitting up the work so that one person
+	// has a combination of valves and the other has the remaining
 	stateholder := make(map[State]IsDone)
 	// Maximum maximum gas flow
-	ret := findMaxGas(0, "AA", Bitset(0), "A", valves, ds, stateholder)
+	maxMax := 0
 
-	return ret
+	// The first user will have i valves to open
+	for i := 1; i < len(sigvalves); i++ {
+		// Find all combinations of i valves
+		c := combs.Combinations(i, sigvalves)
+		for combo := range c {
+			currentValves := make(map[string]Valve)
+			currentValves["AA"] = valves["AA"]
+			valveSetA := Bitset(0)
+			// Give player A currentValves and the used valveSet
+			for _, name := range combo {
+				currentValves[name] = valves[name]
+				valveSetA.Add(valves[name].Bit)
+			}
+			maxA := findMaxGas(0, "AA", Bitset(0), valveSetA, currentValves, ds, stateholder)
+
+			// The second user will take all the valves that remain
+			valveSetB := Bitset(0)
+			remainingValves := make(map[string]Valve)
+			remainingValves["AA"] = valves["AA"] // Everyone starts at AA
+			for _, name := range sigvalves {
+				v := valves[name]
+				if !valveSetA.Contains(v.Bit) && name != "AA" {
+					remainingValves[name] = v
+					valveSetB.Add(v.Bit)
+				}
+			}
+
+			maxB := findMaxGas(0, "AA", Bitset(0), valveSetB, remainingValves, ds, stateholder)
+
+			// The total gas is what both users were able to accomplish
+			sum := maxA + maxB
+			if sum > maxMax {
+				maxMax = sum
+			}
+		}
+	}
+	return maxMax
 }
 
 type State struct {
 	time     int
 	position string
 	open     Bitset // Open valve set
-	player   string
+	total    Bitset // User's valve set
 }
 
 // Store if this state was done and what the value is
@@ -54,18 +100,17 @@ type IsDone struct {
 	val  int
 }
 
-func findMaxGas(time int, position string, open Bitset, player string, valves map[string]Valve, distances map[string]map[string]int, precalc map[State]IsDone) int {
+func findMaxGas(time int, position string, open Bitset, total Bitset, valves map[string]Valve, distances map[string]map[string]int, precalc map[State]IsDone) int {
 	// Check to see if we've done this state
-	s := State{time, position, open, player}
+	s := State{time, position, open, total}
 	pc := precalc[s]
 	if pc.done {
 		return pc.val
 	}
 
-	// Otherwise calculate it. If player=="A" do those turns and then calculate player "B".
+	// Otherwise calculate it
 	max := 0
 
-	currentGas := valves[position].Flow * (limit - time) // This valve will release gas for the rest of the time
 	for next, vnext := range valves {
 		if vnext.Flow == 0 || open.Contains(vnext.Bit) || next == position {
 			continue
@@ -74,14 +119,11 @@ func findMaxGas(time int, position string, open Bitset, player string, valves ma
 		deltat := distances[position][next] + 1
 		var gas int
 		if time+deltat >= limit {
-			if player == "A" {
-				// Let second player go as well
-				gas = currentGas + findMaxGas(0, "AA", open, "B", valves, distances, precalc)
-			}
+			gas = gasReleased(open, valves, limit-time)
 		} else {
 			nopen := open
 			nopen.Add(vnext.Bit)
-			gas = currentGas + findMaxGas(time+deltat, next, nopen, player, valves, distances, precalc)
+			gas = gasReleased(open, valves, deltat) + findMaxGas(time+deltat, next, nopen, total, valves, distances, precalc)
 		}
 
 		if gas > max {
@@ -90,11 +132,7 @@ func findMaxGas(time int, position string, open Bitset, player string, valves ma
 	}
 
 	// Also check if you have nowhere else to go
-	gas := currentGas
-	if player == "A" {
-		// Let second player go
-		gas += findMaxGas(0, "AA", open, "B", valves, distances, precalc)
-	}
+	gas := gasReleased(open, valves, limit-time)
 	if gas > max {
 		max = gas
 	}
