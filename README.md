@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 32](https://img.shields.io/badge/⭐_Stars-32-yellow)](https://adventofcode.com/2022)
+[![Stars: 34](https://img.shields.io/badge/⭐_Stars-34-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -125,14 +125,12 @@ I look forward to seeing how this experiment pans out.
   the state to time elapsed, position, player (I used "A" or "B"), and open valves
   reduced the run time to a few seconds. This was a very interesting problem.
 
-  The second part of this took around a minute to calculate on a 2018 macbook pro, so
-  I am sure there is a better way to do this. For the first part I essentially found the distances
-  between all valves and then recursively did a depth first search through all possible
-  paths that could be done within the time limit. I tracked the total gas released in
-  each branch and found the best one and reported it up the recursion. For Part B I found
-  all combinations of valves with flow > 0 which could be split between the two
-  actors. I then went through those combinations for each actor separately using a
-  similar method to the one for part A but only with their subset of valves. I had
-  to save the maximum pressure release for each state where the state was the time step,
-  the position of the actor, the open valves, and the set of valves. I added the results
-  from each actor to get the maximum for that combination.
+- [Day 17: Pyroclastic Flow](https://adventofcode.com/2022/day/17) - [part 1](day17_p1/main.go), [part 2](day17_p2/main.go)
+
+  This problem is notable because the power went out in my house and has been
+  out for about 36 hours now. I finally evacuated to my in-laws house and brought
+  my laptop to do the problem. It's basically tetris without rotations, and for
+  the second part you have to find a repeating cycle of pieces and motions with
+  the same starting grid pattern. I encoded each row of the grid as a uint8 and
+  then hashed that array to find a grid value I could use as a key in a go map.
+  
