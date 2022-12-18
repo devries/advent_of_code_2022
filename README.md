@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 34](https://img.shields.io/badge/⭐_Stars-34-yellow)](https://adventofcode.com/2022)
+[![Stars: 36](https://img.shields.io/badge/⭐_Stars-36-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -134,3 +134,6 @@ I look forward to seeing how this experiment pans out.
   the same starting grid pattern. I encoded each row of the grid as a uint8 and
   then hashed that array to find a grid value I could use as a key in a go map.
   
+- [Day 18: Boiling Boulders](https://adventofcode.com/2022/day/18) - [part 1](day18_p1/main.go), [part 2](day18_p2/main.go)
+
+  I ended up filling the grid with water blocks to see where it could get. 
