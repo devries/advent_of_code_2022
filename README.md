@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 36](https://img.shields.io/badge/⭐_Stars-36-yellow)](https://adventofcode.com/2022)
+[![Stars: 38](https://img.shields.io/badge/⭐_Stars-38-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -136,4 +136,12 @@ I look forward to seeing how this experiment pans out.
   
 - [Day 18: Boiling Boulders](https://adventofcode.com/2022/day/18) - [part 1](day18_p1/main.go), [part 2](day18_p2/main.go)
 
-  I ended up filling the grid with water blocks to see where it could get. 
+  I ended up filling the grid with water blocks to see where it could get. Then
+  I counted the number of water blocks adjacent to each rock block.
+
+- [Day 19: Not Enough Minerals](https://adventofcode.com/2022/day/19) - [part 1](day19_p1/main.go), [part 2](day19_p2/main.go)
+
+  This was very unpleasant for me. For a while I thought I had a few "off by one"
+  errors, but it turns out it was just misreading the problem. By then I had started
+  on a new approach using a BFS. It took a lot of trial and error to figure out
+  how to cull the queue adequately and even now it's not great.
