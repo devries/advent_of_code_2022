@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 38](https://img.shields.io/badge/⭐_Stars-38-yellow)](https://adventofcode.com/2022)
+[![Stars: 40](https://img.shields.io/badge/⭐_Stars-40-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -145,3 +145,7 @@ I look forward to seeing how this experiment pans out.
   errors, but it turns out it was just misreading the problem. By then I had started
   on a new approach using a BFS. It took a lot of trial and error to figure out
   how to cull the queue adequately and even now it's not great.
+
+- [Day 20: Grove Positioning System](https://adventofcode.com/2022/day/20) - [part 1](day20_p1/main.go), [part 2](day20_p2/main.go)
+
+  After yesterday's doozy of a problem, at least today was nice and simple.
