@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 40](https://img.shields.io/badge/⭐_Stars-40-yellow)](https://adventofcode.com/2022)
+[![Stars: 42](https://img.shields.io/badge/⭐_Stars-42-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -149,3 +149,5 @@ I look forward to seeing how this experiment pans out.
 - [Day 20: Grove Positioning System](https://adventofcode.com/2022/day/20) - [part 1](day20_p1/main.go), [part 2](day20_p2/main.go)
 
   After yesterday's doozy of a problem, at least today was nice and simple.
+
+- [Day 21: Monkey Math](https://adventofcode.com/2022/day/21) - [part 1](day21_p1/main.go), [part 2](day21_p2/main.go)
