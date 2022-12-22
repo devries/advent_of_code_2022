@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 42](https://img.shields.io/badge/⭐_Stars-42-yellow)](https://adventofcode.com/2022)
+[![Stars: 44](https://img.shields.io/badge/⭐_Stars-44-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -151,3 +151,18 @@ I look forward to seeing how this experiment pans out.
   After yesterday's doozy of a problem, at least today was nice and simple.
 
 - [Day 21: Monkey Math](https://adventofcode.com/2022/day/21) - [part 1](day21_p1/main.go), [part 2](day21_p2/main.go)
+
+  The first part of this problem was nice and simple. I put everything in RPN
+  and completed the calculation using a stack. The next part broke my brain. I
+  just wasn't getting what my errors were, and so I decided to go to sleep. The
+  next morning I remembered how subtraction and division worked.
+
+- [Day 22: Monkey Map](https://adventofcode.com/2022/day/22) - [part 1](day22_p1/main.go), [part 2](day22_p2/main.go)
+
+  I spent too long building a general algorithm for working out how to navigate
+  the cube. I think it works in many cases, but I found one configuration which
+  doesn't work. What I did was find the points outside the map that were touching
+  two sides of the map. I then walked along the edge of each map in each direction
+  and set up points to warp from one edge to another. It seems like if only
+  one runner has to make a 90 degree turn, then the edges will still touch, but
+  if both do, then you stop.
