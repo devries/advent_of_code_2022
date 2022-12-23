@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 44](https://img.shields.io/badge/⭐_Stars-44-yellow)](https://adventofcode.com/2022)
+[![Stars: 46](https://img.shields.io/badge/⭐_Stars-46-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -166,3 +166,10 @@ I look forward to seeing how this experiment pans out.
   and set up points to warp from one edge to another. It seems like if only
   one runner has to make a 90 degree turn, then the edges will still touch, but
   if both do, then you stop.
+
+- [Day 23: Unstable Diffusion](https://adventofcode.com/2022/day/23) - [part 1](day23_p1/main.go), [part 2](day23_p2/main.go)
+
+  I love these cellular automaton problems. I created a hash map with the elf's
+  current position as a key and previous position as a value. If there were collision
+  I would move each elf back to its previous position. And to check if any
+  elves moved I just had to wait until every key equaled its value.
