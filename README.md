@@ -173,3 +173,13 @@ I look forward to seeing how this experiment pans out.
   current position as a key and previous position as a value. If there were collision
   I would move each elf back to its previous position. And to check if any
   elves moved I just had to wait until every key equaled its value.
+
+- [Day 24: Blizzard Basin](https://adventofcode.com/2022/day/24) - [part 1](day24_p1/main.go), [part 2](day24_p2/main.go)
+
+  This is a relatively straightforward BFS search with a map that changes each step.
+  The total number of map configurations is the LCM of the map width and height, which
+  for my case was 600 states which I precalculated. The tough part for me was finding
+  the set of states I had already seen during the search. I didn't take the map
+  configuration into account initially, which did not allow me to return to any
+  point or remain in a point. Once I cleared that up, the problem was pretty 
+  quick.
