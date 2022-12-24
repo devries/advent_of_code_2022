@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"time"
 
 	"github.com/devries/advent_of_code_2022/utils"
 	"github.com/spf13/pflag"
@@ -17,7 +18,22 @@ func main() {
 	utils.Check(err, "error opening input")
 	defer f.Close()
 
+	if utils.Verbose {
+		initialize()
+		r, _ := resize()
+		interruptHandling(r, 0)
+		clear()
+		hideCursor()
+	}
+
 	r := solve(f)
+	if utils.Verbose {
+		showCursor()
+		r, _ := resize()
+		move(r, 0)
+		cleanup()
+	}
+
 	fmt.Println(r)
 }
 
@@ -28,21 +44,46 @@ func solve(r io.Reader) int {
 
 	open := findMapStates(in)
 
-	p1 := partialSolve(open, in.Start, in.End, 0)
-	p2 := partialSolve(open, in.End, in.Start, p1.step)
-	p3 := partialSolve(open, in.Start, in.End, p2.step)
+	start := State{in.Start, 0, nil}
+	p1 := partialSolve(open, start, in.End)
+	p2 := partialSolve(open, p1, in.Start)
+	p3 := partialSolve(open, p2, in.End)
+
+	if utils.Verbose {
+		path := []utils.Point{}
+		s := &p3
+		for s != nil {
+			p := s.pos
+			path = append(path, p)
+			s = s.prev
+		}
+
+		// reverse path
+		for i := 0; i < len(path)/2; i++ {
+			path[i], path[len(path)-1-i] = path[len(path)-1-i], path[i]
+		}
+
+		for i, p := range path {
+			clear()
+			move(0, 0)
+			printMap(open[i%len(open)], in.XSize, in.YSize)
+			move(in.YSize-1-p.Y, p.X)
+			fmt.Printf("█")
+			time.Sleep(100 * time.Millisecond)
+		}
+	}
 
 	return p3.step
 }
 
 // Solve from one point to another starting at a time
 // Return the final state of the system
-func partialSolve(open []map[utils.Point]bool, start utils.Point, end utils.Point, startTime int) State {
+func partialSolve(open []map[utils.Point]bool, start State, end utils.Point) State {
 	configurations := len(open)
 	options := []utils.Point{utils.South, utils.East, utils.West, utils.North, {X: 0, Y: 0}} // moves one can make
 
 	seen := make(map[State]bool)
-	queue := []State{{start, startTime}}
+	queue := []State{start}
 	for len(queue) > 0 {
 		s := queue[0]
 		queue = queue[1:]
@@ -52,25 +93,26 @@ func partialSolve(open []map[utils.Point]bool, start utils.Point, end utils.Poin
 		for _, o := range options {
 			pn := s.pos.Add(o)
 			if pn == end {
-				return State{pn, s.step + 1}
+				return State{pn, s.step + 1, &s}
 			}
 
 			// Seen positions will be those states that have the same step modulo
 			// the total number of blizzard configurations
-			seeState := State{pn, (s.step + 1) % configurations}
+			seeState := State{pn, (s.step + 1) % configurations, nil}
 
 			if next[pn] && !seen[seeState] {
 				seen[seeState] = true
-				queue = append(queue, State{pn, s.step + 1})
+				queue = append(queue, State{pn, s.step + 1, &s})
 			}
 		}
 	}
-	return State{utils.Point{X: 0, Y: 0}, 0}
+	return State{utils.Point{X: 0, Y: 0}, 0, nil}
 }
 
 type State struct {
 	pos  utils.Point
 	step int
+	prev *State
 }
 
 func findMapStates(in Input) []map[utils.Point]bool {
@@ -165,6 +207,46 @@ func printOpen(o map[utils.Point]bool, xsize int, ysize int) {
 			}
 		}
 		fmt.Printf("\n")
+	}
+}
+
+func printMap(o map[utils.Point]bool, xsize int, ysize int) {
+	for x := 0; x < xsize; x++ {
+		switch x {
+		case 1:
+			fmt.Printf(" ")
+		default:
+			fmt.Printf("#")
+		}
+	}
+	fmt.Printf("\n")
+
+	for j := ysize - 2; j > 0; j-- {
+		for i := 0; i < xsize; i++ {
+			p := utils.Point{X: i, Y: j}
+
+			switch p.X {
+			case 0, xsize - 1:
+				fmt.Printf("#")
+			default:
+				switch o[p] {
+				case true:
+					fmt.Printf(" ")
+				case false:
+					fmt.Printf("@")
+				}
+			}
+		}
+		fmt.Printf("\n")
+	}
+
+	for x := 0; x < xsize; x++ {
+		switch x {
+		case xsize - 2:
+			fmt.Printf(" ")
+		default:
+			fmt.Printf("#")
+		}
 	}
 }
 
