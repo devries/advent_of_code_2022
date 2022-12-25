@@ -1,7 +1,7 @@
 # Advent of Code 2022
 
 [![Tests](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2022/actions/workflows/main.yml)
-[![Stars: 48](https://img.shields.io/badge/⭐_Stars-48-yellow)](https://adventofcode.com/2022)
+[![Stars: 50](https://img.shields.io/badge/⭐_Stars-50-yellow)](https://adventofcode.com/2022)
 
 ## Plan for This Year
 
@@ -183,3 +183,7 @@ I look forward to seeing how this experiment pans out.
   configuration into account initially, which did not allow me to return to any
   point or remain in a point. Once I cleared that up, the problem was pretty 
   quick.
+
+- [Day 25: Full of Hot Air](https://adventofcode.com/2022/day/25) - [part 1](day25_p1/main.go), [part 2](day25_p2/main.go)
+
+  Well, that's a weird number system.
