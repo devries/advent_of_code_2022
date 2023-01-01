@@ -184,6 +184,6 @@ I look forward to seeing how this experiment pans out.
   point or remain in a point. Once I cleared that up, the problem was pretty 
   quick.
 
-- [Day 25: Full of Hot Air](https://adventofcode.com/2022/day/25) - [part 1](day25_p1/main.go), [part 2](day25_p2/main.go)
+- [Day 25: Full of Hot Air](https://adventofcode.com/2022/day/25) - [part 1](day25_p1/main.go)
 
   Well, that's a weird number system.
