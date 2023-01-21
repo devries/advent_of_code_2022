@@ -1,0 +1,14 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+  },
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "devries/aoc2022_inputs": {
+          "permissions": "read-all"
+        }
+      }
+    }
+  }
+}
