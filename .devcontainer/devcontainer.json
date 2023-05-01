@@ -1,0 +1,17 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": {}
+  },
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "devries/aoc2022_inputs": {
+          "permissions": {
+            "contents": "write"
+          }
+        }
+      }
+    }
+  }
+}
