@@ -7,9 +7,7 @@
     "codespaces": {
       "repositories": {
         "devries/aoc2022_inputs": {
-          "permissions": {
-            "contents": "read and write"
-          }
+          "permissions": "write-all"
         }
       }
     }
