@@ -8,7 +8,7 @@
       "repositories": {
         "devries/aoc2022_inputs": {
           "permissions": {
-            "contents": "write"
+            "contents": "read and write"
           }
         }
       }
